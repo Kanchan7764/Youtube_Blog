@@ -19,7 +19,9 @@ const PORT = process.env.PORT || 8000;
 
 
 mongoose
-  .connect(process.env.DATABASE_URL||"mongodb://127.0.0.1:27017/Blog")
+  .connect(process.env.DATABASE_URL||"mongodb://127.0.0.1:27017/Blog",{ serverSelectionTimeoutMS:5000})
+     
+  
   .then((e) => console.log("MongoDB Connected!"));
 
 app.set("view engine", "ejs");
