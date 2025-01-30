@@ -10,6 +10,9 @@ const Blog = require("./models/blog");
 const userRouter = require("./Routes/user");
 const blogRoute = require("./Routes/blog");
 
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+
 const { checkForAuthenticationCookie } = require("./middleware/authentication");
 //const middleWare =require("./middleware/authentication");
 
@@ -17,9 +20,9 @@ const app = express();
 
 const PORT = process.env.PORT || 8000;
 
-
+// .connect(process.env.ATLASDB_URL||"mongodb://127.0.0.1:27017/Blog");
 mongoose
-  .connect(process.env.DATABASE_URL||"mongodb://127.0.0.1:27017/Blog",{ serverSelectionTimeoutMS:5000})
+  .connect(process.env.ATLASDB_URL||"mongodb://127.0.0.1:27017/Blog",{serverSelectionTimeoutMS:50000})
      
   
   .then((e) => console.log("MongoDB Connected!"));
