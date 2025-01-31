@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 8000;
 
 // .connect(process.env.ATLASDB_URL||"mongodb://127.0.0.1:27017/Blog");
 mongoose
-  .connect(process.env.ATLASDB_URL||"mongodb://127.0.0.1:27017/Blog",{serverSelectionTimeoutMS:50000})
+  .connect("mongodb://127.0.0.1:27017/Blog",{serverSelectionTimeoutMS:50000})
      
   
   .then((e) => console.log("MongoDB Connected!"));
